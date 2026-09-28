@@ -1,0 +1,305 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>BBA Technology — Company Profile</title><style>
+  :root{
+    --bg:#070b12; --panel:#0c1220; --line:#1b2740; --text:#dbe6f5;
+    --muted:#7f92ad; --accent:#00d4ff; --green:#25e08a; --amber:#ffb347;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--text);
+    font-family:"Inter","Segoe UI",-apple-system,Helvetica,Arial,sans-serif;
+    line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+
+  header{border-bottom:1px solid var(--line);padding:18px 0;position:sticky;top:0;
+    background:rgba(7,11,18,.92);backdrop-filter:blur(8px);z-index:10}
+  .bar{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+  .brand{font-weight:800;font-size:17px;letter-spacing:-.3px}
+  .brand span{color:var(--muted);font-weight:500}
+  .bar a{color:var(--accent);text-decoration:none;font-size:13px;font-weight:600}
+
+  .hero{padding:58px 0 34px}
+  h1{font-size:clamp(26px,5vw,44px);line-height:1.12;letter-spacing:-1px;font-weight:800;
+    max-width:20ch}
+  .hero p{margin-top:16px;font-size:clamp(15px,2.2vw,18px);color:#b9c8dc;max-width:62ch}
+  .hero b{color:#fff}
+
+  h2{font-size:12px;text-transform:uppercase;letter-spacing:1.6px;color:var(--muted);
+    font-weight:700;margin-bottom:16px}
+  section{padding:34px 0;border-top:1px solid var(--line)}
+  .lead{font-size:clamp(18px,3vw,25px);font-weight:700;letter-spacing:-.4px;
+    line-height:1.3;max-width:28ch;margin-bottom:10px}
+  .sub{color:#a7b8ce;max-width:64ch}
+
+  /* ---- partner band ---- */
+  .band{background:linear-gradient(135deg,#0d1728,#0a1120);border:1px solid #23406b;
+    border-radius:14px;padding:26px 24px;margin-top:20px}
+  .band .lead{max-width:30ch;margin-bottom:12px}
+  .band p{color:#a7b8ce;max-width:62ch}
+  .band p + p{margin-top:10px}
+
+  /* ---- product rows ---- */
+  .prod{display:grid;grid-template-columns:1.05fr 1fr;gap:26px;align-items:center;
+    padding:30px 0;border-top:1px solid var(--line)}
+  .prod:first-of-type{border-top:none}
+  .prod .media{background:var(--panel);border:1px solid var(--line);border-radius:11px;
+    overflow:hidden}
+  .prod .media img{width:100%;display:block;background:#000}
+  .prod .media video{width:100%;display:block;aspect-ratio:16/10;object-fit:cover;background:#000}
+  .prod .media svg{width:100%;display:block;background:#080d17}
+  .prod .media .note{padding:8px 12px;font-size:11.5px;color:var(--muted);
+    border-top:1px solid var(--line)}
+  .prod .body .num{font-size:11.5px;font-weight:800;color:var(--accent);
+    letter-spacing:1.4px;text-transform:uppercase}
+  .prod .body h3{font-size:clamp(18px,2.6vw,23px);letter-spacing:-.45px;line-height:1.25;
+    margin-top:6px;font-weight:800}
+  .prod .body p{color:#a7b8ce;margin-top:9px;font-size:14.8px}
+  .prod .body ul{margin-top:10px;padding-left:17px;color:#9fb2c9;font-size:14px}
+  .prod .body li{margin-top:4px}
+  .flip .media{order:2}
+
+  .badge{display:inline-block;margin-top:12px;font-size:11px;font-weight:800;
+    letter-spacing:.8px;text-transform:uppercase;padding:4px 9px;border-radius:5px}
+  .b-live{background:rgba(37,224,138,.13);color:var(--green);border:1px solid rgba(37,224,138,.32)}
+  .b-dev{background:rgba(255,179,71,.12);color:var(--amber);border:1px solid rgba(255,179,71,.32)}
+
+  .cat{padding:14px 14px 4px}
+  .cat-h{font-size:13px;font-weight:800;color:var(--accent);letter-spacing:-.2px;
+    margin-bottom:11px}
+  .cat-g{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+  .cat-c{background:#080d17;border:1px solid var(--line);border-radius:7px;padding:9px 10px}
+  .cat-t{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.9px;
+    color:#9fb2c9;margin-bottom:5px}
+  .cat-c span{display:block;font-size:11.5px;color:#7f92ad;line-height:1.55;
+    padding-left:9px;position:relative}
+  .cat-c span::before{content:"";position:absolute;left:0;top:8px;width:3px;height:3px;
+    border-radius:50%;background:var(--green)}
+  @media(max-width:470px){.cat-g{grid-template-columns:1fr}}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:12px;margin-top:6px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:15px 16px}
+  .card .t{font-weight:700;font-size:15px;letter-spacing:-.2px}
+  .card .d{font-size:13.5px;color:#9fb2c9;margin-top:5px;line-height:1.5}
+
+  .refs{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:14px;margin-top:6px}
+  .ref{border-left:2px solid var(--accent);padding-left:13px}
+  .ref .n{font-size:17px;font-weight:800;letter-spacing:-.4px;line-height:1.25}
+  .ref .l{font-size:13px;color:#9fb2c9;margin-top:5px;line-height:1.45}
+
+  .cta{background:linear-gradient(135deg,#0d1728,#0a1120);border:1px solid #23406b;
+    border-radius:14px;padding:26px 24px;margin:34px 0 40px}
+  .cta h3{font-size:clamp(19px,3vw,26px);letter-spacing:-.5px;line-height:1.25;max-width:26ch}
+  .cta p{color:#a7b8ce;margin-top:10px;max-width:58ch}
+  .btn{display:inline-block;margin-top:16px;background:var(--accent);color:#04121c;
+    font-weight:800;padding:12px 20px;border-radius:8px;text-decoration:none;font-size:15px}
+  .mail{display:block;margin-top:12px;color:var(--accent);text-decoration:none;
+    font-size:14px;font-weight:600;word-break:break-all}
+
+  .sum{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-top:8px}
+  .sum-b{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px 17px}
+  .sum-t{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1.1px;
+    color:var(--accent);margin-bottom:7px}
+  .sum-b p{font-size:13.5px;color:#a7b8ce;line-height:1.55}
+  .sum-l{margin:2px 0 0;padding-left:18px;font-size:13.5px;color:#a7b8ce;line-height:1.5}
+  .sum-l li{margin-top:3px}
+  .sum-l em{color:var(--amber);font-style:normal;font-size:12px;font-weight:700}
+
+  .reach{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:14px}
+  .reach a{color:var(--accent);text-decoration:none;font-size:14px;font-weight:600}
+
+  footer{border-top:1px solid var(--line);padding:22px 0 34px;color:var(--muted);font-size:12.5px}
+
+
+
+  @media(max-width:760px){
+    .prod{grid-template-columns:1fr;gap:16px;padding:26px 0}
+    .flip .media{order:0}
+  }
+
+
+  .where{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:6px}
+  .w{background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:13px 14px}
+  .w .c{font-weight:800;font-size:14.5px;letter-spacing:-.2px}
+  .w .d{font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45}
+
+  .sect{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;margin-top:6px}
+  .s{background:var(--panel);border:1px solid var(--line);border-radius:11px;padding:18px 19px;
+     display:flex;flex-direction:column}
+  .s.lead-s{border-color:#23406b;background:linear-gradient(135deg,#0d1728,#0a1120)}
+  .s .n{font-size:11px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;color:var(--accent)}
+  .s h3{font-size:19px;letter-spacing:-.4px;margin-top:7px;font-weight:800;line-height:1.25}
+  .s p{font-size:13.5px;color:#a7b8ce;margin-top:8px;line-height:1.55}
+  .s ul{margin-top:9px;padding-left:17px;font-size:13px;color:#9fb2c9;line-height:1.5}
+  .s li{margin-top:3px}
+  .s .go{margin-top:auto;padding-top:13px}
+  .s .go a{color:var(--accent);text-decoration:none;font-size:13px;font-weight:700}
+
+  .refl{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:13px;margin-top:6px}
+  .rf{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:15px 16px}
+  .rf .t{font-weight:800;font-size:15px;letter-spacing:-.2px}
+  .rf .st{display:inline-block;margin-top:7px;font-size:10px;font-weight:800;letter-spacing:.7px;
+     text-transform:uppercase;padding:3px 8px;border-radius:4px;
+     background:rgba(37,224,138,.12);color:var(--green);border:1px solid rgba(37,224,138,.3)}
+  .rf .st.p{background:rgba(255,179,71,.11);color:var(--amber);border-color:rgba(255,179,71,.3)}
+  .rf .d{font-size:13px;color:#9fb2c9;margin-top:9px;line-height:1.5}
+
+  html,body{background:#3a4152}
+  .sheet{width:210mm;height:297mm;background:var(--bg);color:var(--text);
+    padding:15mm 15mm 13mm;margin:0 auto 8mm;overflow:hidden;position:relative;
+    display:flex;flex-direction:column}
+  .sheet>.fill{flex:1 1 auto;display:flex;flex-direction:column;justify-content:space-evenly}
+  .sheet section{border-top:none;padding:0}
+  .sheet .sect{grid-template-columns:1fr 1fr !important;gap:11px !important}
+  .sheet .s{padding:14px 15px}
+  .sheet .s h3{font-size:17px}
+  .sheet .s p{font-size:12.5px;margin-top:6px}
+  .sheet .s ul{font-size:12px;margin-top:7px}
+  .sheet .s .go{padding-top:10px}
+  .sheet .refl{grid-template-columns:1fr 1fr !important}
+  .sheet .where{grid-template-columns:1fr 1fr !important}
+  .sheet .cta{margin:0}
+  .foot{display:flex;justify-content:space-between;border-top:1px solid var(--line);
+    padding-top:4mm;margin-top:8mm;font-size:9.5px;color:var(--muted);letter-spacing:.3px}
+  .foot b{color:#9fb2c9;font-weight:700}
+  .kapak{justify-content:center}
+  .kapak h1{font-size:38px;max-width:19ch}
+  .kapak .cizgi{width:64px;height:3px;background:var(--accent);margin:24px 0}
+  .kapak .kim{margin-top:auto;font-size:12.5px;color:var(--muted);line-height:1.8}
+  .kapak .kim b{color:var(--text);display:block;font-size:15px;margin-bottom:4px}
+  @media print{
+    *{-webkit-print-color-adjust:exact !important;print-color-adjust:exact !important}
+    @page{size:A4;margin:0}
+    html,body{background:var(--bg)}
+    .sheet{margin:0;break-after:page;page-break-after:always}
+    .sheet:last-child{break-after:auto;page-break-after:auto}
+  }
+</style></head><body><div class="sheet kapak">
+  <div class="brand" style="font-size:19px">BBA <span>Technology</span></div>
+  <div class="cizgi"></div>
+  <h1>Software and AI for operations that happen in the physical world.</h1>
+  <p class="sub" style="margin-top:16px;font-size:15px">We are an engineering company in İzmir,
+  Türkiye. We build the software layer for organisations that run something real: a coastline,
+  a refinery, a development, a fleet, a hotel group, a squad.
+  <b style="color:#fff">Not advice, not a pilot deck. Systems that are in use.</b></p>
+  <div class="kim"><b>Company profile</b>
+  NCAGE TN069 · registered defence supplier<br>
+  WhatsApp +90 530 597 41 87 · serdarbatkan@bbateknoloji.com</div>
+</div><div class="sheet"><div class="fill"><section><h2>Where we work</h2>
+    <div class="where">
+      <div class="w"><div class="c">Türkiye</div><div class="d">Engineering base, İzmir. Public sector, energy, municipal and sports clients.</div></div>
+      <div class="w"><div class="c">United Arab Emirates</div><div class="d">Delivering with a local partner in Dubai. Our largest deployment.</div></div>
+      <div class="w"><div class="c">Oman &middot; Saudi Arabia &middot; Qatar</div><div class="d">Active partner conversations across unmanned systems and facility security.</div></div>
+      <div class="w"><div class="c">Djibouti</div><div class="d">Market entry with a local co-sell partner; service platform live in four languages.</div></div>
+    </div></section><div style="height:10mm"></div><section><h2>How we work</h2>
+    <div class="lead">We do not compete with our partners. We go to the customer beside them.</div>
+    <p class="sub">In every market we enter we look for one strong local company that already owns
+    the customer relationship, the licences and the field crews, and we bring the technology that
+    company cannot build on its own. Your customer stays yours. The technology is ours. The work
+    is joint, and BBA is named as the engineering behind it.</p></section></div><div class="foot"><span><b>BBA Technology</b> · Company profile</span><span>Where and how we work</span><span>2</span></div></div><div class="sheet"><div class="fill"><section><h2>What we build</h2>
+    <div class="sect">
+
+      <div class="s lead-s">
+        <div class="n">Primary line</div>
+        <h3>Unmanned systems and autonomy</h3>
+        <p>The control, autonomy and AI layer for air, ground and surface vehicles. We do not
+        manufacture aircraft. We build what turns a flight into something a customer pays for
+        every month.</p>
+        <ul>
+          <li>One control layer across DJI, PX4, ArduPilot and ground vehicles</li>
+          <li>Twenty-eight analyses out of a single flight, run on the customer's own hardware</li>
+          <li>An operable 3D twin of a site, its equipment and its vehicles</li>
+          <li>GPS-denied navigation, swarm control, legged and wheeled robots</li>
+          <li>A nine-module security and operations centre</li>
+          <li>GNSS interference and mission integrity</li>
+        </ul>
+        <div class="go"><a href="https://serdarbba.github.io/bba-unmanned/">Full detail, ten products &rarr;</a></div>
+      </div>
+
+      <div class="s">
+        <div class="n">Core segment</div>
+        <h3>Facility security and operations</h3>
+        <p>Cameras, drones, ground vehicles and patrols run from one control centre that
+        classifies what it sees, ranks it and sends the nearest unit. On-premises, with an audit
+        log the operator cannot rewrite.</p>
+        <ul>
+          <li>Built for a 303,000 m&#178; development in Dubai, nine modules in one screen</li>
+          <li>Detection, dispatch and evidence only. Nothing armed.</li>
+        </ul>
+        <div class="go"><a href="https://serdarbba.github.io/bba-unmanned/">Product 07 and 10 &rarr;</a></div>
+      </div>
+
+      <div class="s">
+        <div class="n">Applied AI</div>
+        <h3>Computer vision on real footage</h3>
+        <p>Detection, counting, change between two dated visits, thermal and incident detection,
+        condition classification. Specified with a Gulf customer against measured acceptance
+        criteria: people counting within &plusmn;10%, intrusion recall above 90%, fire above 85%,
+        shoreline position within three metres.</p>
+        <ul>
+          <li>Runs offline, on the customer's own machines, where footage cannot leave the country</li>
+        </ul>
+      </div>
+
+      <div class="s">
+        <div class="n">Conversational AI</div>
+        <h3>AI concierge for service businesses</h3>
+        <p>WhatsApp and Instagram agents that answer guests in their own language, take
+        reservations, and hand over to staff only when needed. Live in hotels and restaurants,
+        integrated with property management systems.</p>
+      </div>
+
+      <div class="s">
+        <div class="n">Sports technology</div>
+        <h3>Performance and injury analytics</h3>
+        <p>Wearable and video data turned into workload management and injury risk. Heart-rate and
+        accelerometer pipelines, match video analysis, squad depth and scouting.</p>
+      </div>
+
+      <div class="s">
+        <div class="n">Property operations</div>
+        <h3>Residential and development platforms</h3>
+        <p>A three-dimensional operating interface for residential compounds and developments:
+        every building, unit and asset in one model, with work orders, escalations and reporting
+        attached to it.</p>
+      </div>
+
+    </div></section></div><div class="foot"><span><b>BBA Technology</b> · Company profile</span><span>What we build</span><span>3</span></div></div><div class="sheet"><div class="fill"><section><h2>Selected references</h2>
+    <div class="refl">
+      <div class="rf"><div class="t">Dubai Municipality</div><span class="st">In delivery</span>
+        <div class="d">Coastal monitoring programme delivered together with our local partner in
+        the UAE. Fifteen analyses from a single flight, running on the customer's own servers,
+        against numeric acceptance criteria.</div></div>
+
+      <div class="rf"><div class="t">303,000 m&#178; development, Dubai</div><span class="st">Built</span>
+        <div class="d">Security and operations platform for one of the largest retail
+        developments in the world: drone feeds, fixed cameras, plate recognition, access control
+        and patrol routes in one operating picture.</div></div>
+
+      <div class="rf"><div class="t">Türkiye Petrolleri</div><span class="st">Delivered</span>
+        <div class="d">Work with the Turkish national oil company, in an industry where
+        inspection, reporting and safety cannot be approximate.</div></div>
+
+      <div class="rf"><div class="t">İzmir Metropolitan Municipality</div><span class="st">Delivered</span>
+        <div class="d">Road and infrastructure excavation monitoring by drone at city scale,
+        across repeat flights.</div></div>
+
+      <div class="rf"><div class="t">Ministry of National Defence, Türkiye</div><span class="st">Tender won</span>
+        <div class="d">Tender won for an unmanned aerial system programme. BBA is a registered
+        defence supplier with the active NATO Commercial and Government Entity code
+        <b>TN069</b>, assigned by the Turkish Ministry of National Defence, and our systems are
+        codified with NATO Stock Numbers.</div></div>
+
+      <div class="rf"><div class="t">Pınar Karşıyaka &middot; Karşıyaka SK</div><span class="st p">Pilot</span>
+        <div class="d">Sports analytics pilot with a Turkish Basketball Super League club and its
+        football side: workload, injury risk and match video analysis on one platform.</div></div>
+
+      <div class="rf"><div class="t">Djibouti</div><span class="st p">Market entry</span>
+        <div class="d">Co-sell partnership with a local partner. Service platform live in French,
+        Arabic, English and Somali, with a working AI line buyers can test from their own phone.</div></div>
+    </div></section></div><div class="foot"><span><b>BBA Technology</b> · Company profile</span><span>References</span><span>4</span></div></div><div class="sheet"><div class="fill" style="justify-content:center"><div class="cta">
+    <h3>The fastest way to judge us is twenty minutes with the screen open.</h3>
+    <p>Tell us which of these lines matters on your side and we will show the system running,
+    not slides. If it fits, the next step is one site, delivered together.</p>
+    <a class="btn" href="https://wa.me/905305974187">Message us on WhatsApp</a>
+    <div class="reach">
+      <a href="tel:+905305974187">+90 530 597 41 87</a>
+      <a href="mailto:serdarbatkan@bbateknoloji.com">serdarbatkan@bbateknoloji.com</a>
+    </div></div><div class="foot"><span><b>BBA Technology</b> · Company profile</span><span>Next step</span><span>5</span></div></div></body></html>
